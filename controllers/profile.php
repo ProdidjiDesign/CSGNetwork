@@ -77,9 +77,8 @@
 		require(dirname(__FILE__)."/scripts.php"); 
 		echo "<script type = 'text/javascript'> detectActive(0); </script>";
 	?>
-	<script type = "text/javascript" src="./js/jquery.mosaicflow.min.js"></script>
 	<script type = "text/javascript" src="./js/publications.js"></script>
-
+	<script src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
 	</body>
 
 </html>
