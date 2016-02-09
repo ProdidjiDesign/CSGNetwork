@@ -40,7 +40,7 @@
 		</div>
 
 		<div id = "thread">
-			
+		
 		</div>
 
 	</div>

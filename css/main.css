@@ -1,8 +1,8 @@
-/*
+/***********
 
 Fonts
 
-*/
+************/
 @font-face {
     font-family: 'Sniglet';
     src: url('./fonts/sniglet-regular-webfont.eot');
@@ -16,11 +16,47 @@ Fonts
 
 }
 
+@font-face {
+  font-family: 'fontello';
+  src: url('./fonts/fontello.eot?42574432');
+  src: url('./fonts/fontello.eot?42574432#iefix') format('embedded-opentype'),
+       url('./fonts/fontello.woff?42574432') format('woff'),
+       url('./fonts/fontello.ttf?42574432') format('truetype'),
+       url('./fonts/fontello.svg?42574432#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
 /*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?42574432#fontello') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  	font-family: "fontello" !important;
+ 	
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+  	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+/*************
 
 Global rules
 
-*/
+*************/
+
 *{
 	text-align:center;
 }
@@ -62,8 +98,13 @@ Classes
 
 */
 
+.icon-heart-broken{
+	margin-top:0px !important;
+}
 
-
+.icon-heart-broken:before { 
+	content: '\e800'; 
+}
 .login-form{
 	margin-top: 20px;
     margin-bottom: 10px;
@@ -329,6 +370,21 @@ table .glyphicon{
 	box-shadow: -1px 2px 20px 3px rgba(0, 0, 0, 0.1);
 
 }
+.under-pub{
+	text-align:left;
+	margin-top:5px;
+	cursor:pointer;
+}
+.under-pub-content{
+	margin:5px;
+	display:inline-block;
+	font-size:0.8em;
+	font-family:Sniglet;
+}
+.under-pub-content.glyphicon{
+	font-size:1em;
+	font-family:'Glyphicons Halflings';
+}
 .pub-header{
 	display: flex;
     align-items: center;
@@ -342,6 +398,63 @@ table .glyphicon{
 }
 .text-pub{
 	overflow-x:hidden;
+}
+.mosaicflow__column {
+    float: left;
+	position: relative;
+ }
+.mosaicflow__item{
+    position:relative;
+}
+.left-nav{
+	width: 54px;
+	min-height: 100vh;
+	position: fixed;
+	left:0px;
+	top:0px;
+	background-color:#1D1D32;
+	padding:0px;
+	z-index: 100;
+}
+.navbar-nav{
+	width:100%;
+	text-align:center;
+	padding:0px;
+	margin: 7.5px 0px;
+}
+.navbar-nav li{
+	list-style: none;
+	width:100%;
+}
+.navbar-nav .tooltip{
+	max-width:none;
+	line-break:none;
+	white-space:pre;
+}
+.tooltip-inner{
+	max-width:none;
+}
+.act{
+	background-color:#080808;
+}
+.act span{
+	color:white;
+}
+.navbar-nav .glyphicon{
+	font-size:1.6em;
+	margin:15px 0px;
+	cursor:pointer;
+}
+.maincontainer{
+	padding-left: 54px;
+}
+.profile-img{
+    background-size: auto 100%; 
+    width:100%;
+	background-size: cover;
+	background-position: center center;
+	border-radius:50%;
+	padding:50%;
 }
 /*
 
@@ -387,11 +500,15 @@ Indexes
 .place-t-post#school-post.active-item{
 	box-shadow:none !important;
 }
-/*
+
+
+/*****************
 
 Loaders
 
-*/
+******************/
+
+
 .cssload-loader-inner {
 		bottom: 0;
 		height: 135px;
@@ -530,63 +647,6 @@ Loaders
 		-ms-animation: cssload-loader-inner2 2.3s infinite ease-in;
 		-webkit-animation: cssload-loader-inner2 2.3s infinite ease-in;
 		-moz-animation: cssload-loader-inner2 2.3s infinite ease-in;
-}
-.mosaicflow__column {
-    float: left;
-	position: relative;
- }
-.mosaicflow__item{
-    position:relative;
-}
-.left-nav{
-	width: 54px;
-	min-height: 100vh;
-	position: fixed;
-	left:0px;
-	top:0px;
-	background-color:#1D1D32;
-	padding:0px;
-	z-index: 100;
-}
-.navbar-nav{
-	width:100%;
-	text-align:center;
-	padding:0px;
-	margin: 7.5px 0px;
-}
-.navbar-nav li{
-	list-style: none;
-	width:100%;
-}
-.navbar-nav .tooltip{
-	max-width:none;
-	line-break:none;
-	white-space:pre;
-}
-.tooltip-inner{
-	max-width:none;
-}
-.act{
-	background-color:#080808;
-}
-.act span{
-	color:white;
-}
-.navbar-nav .glyphicon{
-	font-size:1.6em;
-	margin:15px 0px;
-	cursor:pointer;
-}
-.maincontainer{
-	padding-left: 54px;
-}
-.profile-img{
-    background-size: auto 100%; 
-    width:100%;
-	background-size: cover;
-	background-position: center center;
-	border-radius:50%;
-	padding:50%;
 }
 @keyframes cssload-loader2 {
 	0% {
@@ -866,11 +926,13 @@ Loaders
 	}
 }
 
-/*
+/*****************
 
 Responsive rules
 
-*/
+*****************/
+
+
 @media (max-width: 992px){
 	.title{
 		display:inline;
@@ -896,6 +958,9 @@ Responsive rules
 	}
 	table .txt{
 		display:none;
+	}
+	.under-pub{
+		text-align:center;
 	}
 }
 

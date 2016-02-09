@@ -9,7 +9,7 @@
 				$request = $bdd->prepare('SELECT * FROM posts WHERE author=:author order by pub_date desc;');
 				$request->execute(array("author"=>$_SESSION['co_elements']['first'].' '.$_SESSION['co_elements']['name']));
 				
-				printPosts($request);
+				printPosts($bdd,$request);
 
 				break;
 
@@ -17,11 +17,25 @@
 
 	}
 
-	function printPosts($data){
+	function printPosts($bdd,$data){
 
 		$id = 0;
 
 		while($single = $data->fetch()){
+
+			$icon = "glyphicon-heart";
+			$number = 0;
+
+			$request = $bdd->prepare('SELECT * FROM heart WHERE pid=:post_id ;');
+			$request->execute(array("post_id"=>$single['id']));
+
+			while($hearts = $request->fetch()){
+
+				if($hearts['uid'] == $_SESSION['co_elements']['uid']){
+					$icon = "icon-heart-broken";
+				}
+				$number++;
+			}
 
 			list($year, $month, $daytime) = explode("-",$single['pub_date']);
 			list($day, $time) = explode(" ",$daytime);
@@ -44,6 +58,14 @@
 				<hr></hr>
 				<div class = "pub-content item">
 					'.$single['content'].'
+				</div>
+				<div class = "row">
+					<div class = "col-sm-2 col-xs-6 under-pub" id = "'.$single['id'].'">
+						<span class = "glyphicon '.$icon.' under-pub-content"></span><span class = "under-pub-content">'.$number.'</span>
+					</div>
+					<div class = "col-sm-2 col-xs-6 under-pub">
+						<span class = "glyphicon glyphicon-comment under-pub-content"></span><span class = "under-pub-content">4687</span>
+					</div>
 				</div>
 			</div>';
 

@@ -54,6 +54,17 @@ function shortPub(){
 }
 
 function loadPic(event,index,nbr,type) {
+
+	if(nbr===8){
+		if(!alert('Nous sommes désolés mais l\'upload de plus de 8 photos n\'est pas autorisé.\n Si vous voulez mettre un album en ligne et l\'envoyer à vos amis\n utilisez le transfert de fichiers.')){
+			$('.wrapper').remove();
+			return;
+		}
+	}
+	if(nbr>8){
+		return;
+	}
+
 	if (type === 'transfer')
 		var src = URL.createObjectURL(event.originalEvent.dataTransfer.files[index]);
 	else
@@ -184,6 +195,7 @@ $(document).ready(function() {
 		}
 		var xhr = new XMLHttpRequest();
 		xhr.open('POST', './AJAX/post_pub.php', true);
+		xhr.timeout = 10000;
 
 		xhr.onreadystatechange = function() {
 		    if (xhr.readyState == XMLHttpRequest.DONE) {

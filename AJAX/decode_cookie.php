@@ -33,7 +33,7 @@
 
 				$_SESSION['co_elements'] = array(
 
-					'id' => $base['id'],
+					'uid' => $base['id'],
 					'pass' => $base['pass'],
 					'first' => $base['first_name'],
 					'name' => $base['name'],

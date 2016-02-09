@@ -7,9 +7,9 @@
 		require("../models/post_pub.php");
 
 		$images_returned = uploadFiles();
-		$images = $images_returned[0];
+		$image1 = $images_returned[0];
 		$images_returned[0] = "";
-		$images = $images.'<div class="clearfix mosaicflow">'.implode($images_returned).'</div>';
+		$images = $image1.'<div class="clearfix mosaicflow">'.implode($images_returned).'</div>';
 		$status = 1;
 
 		switch($_POST['dest']){
