@@ -217,7 +217,69 @@ $(document).ready(function() {
 
 	});
 
+	$("body").on('click','.glyphicon-heart',function(){
 
+		var pid = $(this).parent().attr('id');
+
+		$.ajax({
+			method	: "POST",
+			url		: "./AJAX/love.php",
+			dataType: "html",
+			data 	: {"pid":pid,"todo":"more"},
+			success: function(data){
+
+				if(data === "Are u lost ?"){
+					window.location.reload(true);
+				}
+				else{
+					var value = parseInt($("#"+pid).children().eq(1).text());
+					value++;
+					$("#"+pid).children().eq(1).text(value);
+					$("#"+pid).children().eq(0).removeClass("glyphicon-heart");
+					$("#"+pid).children().eq(0).addClass("icon-heart-broken under-pub-active");
+				}
+
+			},
+			error: function(){
+
+					location.reload(true);
+
+			}
+		});
+
+	});
+
+	$("body").on('click','.icon-heart-broken',function(){
+
+		var pid = $(this).parent().attr('id');
+
+		$.ajax({
+			method	: "POST",
+			url		: "./AJAX/love.php",
+			dataType: "html",
+			data 	: {"pid":pid,"todo":"min"},
+			success: function(data){
+
+				if(data === "Are u lost ?"){
+					window.location.reload(true);
+				}
+				else{
+					var value = parseInt($("#"+pid).children().eq(1).text());
+					value--;
+					$("#"+pid).children().eq(1).text(value);
+					$("#"+pid).children().eq(0).removeClass("icon-heart-broken under-pub-active");
+					$("#"+pid).children().eq(0).addClass("glyphicon-heart");
+				}
+
+			},
+			error: function(){
+
+					location.reload(true);
+
+			}
+		});
+
+	});
 
 
 

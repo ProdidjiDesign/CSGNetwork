@@ -384,7 +384,20 @@ table .glyphicon{
 .under-pub-content.glyphicon{
 	font-size:1em;
 	font-family:'Glyphicons Halflings';
+	-moz-transition-duration:0.5s;
+	-moz-transition-property:-moz-transform;
+	-webkit-transition-duration:0.5s;
+	-webkit-transition-property:-webkit-transform;
+	transition-duration:0.5s;
+	transition-property:transform;
 }
+
+.under-pub:hover .glyphicon{
+	transform:rotateZ(360deg) scale(1.5,1.5);
+	-webkit-transform:rotateZ(360deg) scale(1.5,1.5);
+	-moz-transform:rotateZ(360deg) scale(1.5,1.5);
+}
+
 .pub-header{
 	display: flex;
     align-items: center;
@@ -439,6 +452,9 @@ table .glyphicon{
 }
 .act span{
 	color:white;
+}
+.under-pub-active{
+	color:red;
 }
 .navbar-nav .glyphicon{
 	font-size:1.6em;

@@ -32,7 +32,7 @@
 			while($hearts = $request->fetch()){
 
 				if($hearts['uid'] == $_SESSION['co_elements']['uid']){
-					$icon = "icon-heart-broken";
+					$icon = "icon-heart-broken under-pub-active";
 				}
 				$number++;
 			}
@@ -64,7 +64,7 @@
 						<span class = "glyphicon '.$icon.' under-pub-content"></span><span class = "under-pub-content">'.$number.'</span>
 					</div>
 					<div class = "col-sm-2 col-xs-6 under-pub">
-						<span class = "glyphicon glyphicon-comment under-pub-content"></span><span class = "under-pub-content">4687</span>
+						<span class = "glyphicon glyphicon-pencil under-pub-content"></span><span class = "under-pub-content">4687</span>
 					</div>
 				</div>
 			</div>';
