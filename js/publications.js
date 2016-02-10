@@ -27,7 +27,7 @@ function shortPub(){
 	$('.mosaicflow').mosaicflow({
 				    itemSelector: '.mosaicflow__item',
 				    minItemWidth: $('.mosaicflow').width()/2
-				});
+	});
 
 	$('.item').each(function(){
 
@@ -127,12 +127,14 @@ $(document).ready(function() {
 	var inputs = document.querySelectorAll( '.box-input' );
 	var letters = 0;
 	var boxIsDisplayed = false;
+	var bottom = "no";
+	var i = 0;
 
 	$.ajax({
 		method	: "POST",
 		url		: "./AJAX/thread.php",
 		dataType: "html",
-		data 	: {"place":"profile","last":"10"},
+		data 	: {"place":"profile","last":0},
 		success: function(data){
 
 				$('#thread').prepend(data);
@@ -194,8 +196,6 @@ $(document).ready(function() {
 		  }
 		}
 		var xhr = new XMLHttpRequest();
-		$(".post-form.single").children().hide();
-		$(".post-form").prepend("<img style = 'width:10%;margin:auto;' src = './pictures/loading.gif'/>");
 		xhr.open('POST', './AJAX/post_pub.php', true);
 		xhr.timeout = 10000;
 
@@ -209,8 +209,26 @@ $(document).ready(function() {
 
 		xhr.onload = function () {
 		  if (xhr.status === 200) {
-				$(".post-form").children("img").remove();
+				$("#img-preview").empty();
+				$("#write-space").val("");
 				$(".post-form.single").children().fadeIn();
+				$.ajax({
+					method	: "POST",
+					url		: "./AJAX/thread.php",
+					dataType: "html",
+					data 	: {"place":"newpost","last":-1},
+					success: function(data){
+
+							$('#thread').prepend(data);
+							shortPub();
+
+					},
+					error: function(){
+
+							location.reload(true);
+
+					}
+				});
 		  } else {
 		    alert('Une erreur s\'est produite!');
 		  }
@@ -284,7 +302,42 @@ $(document).ready(function() {
 
 	});
 
+	$(window).scroll(function() {
+			if ($("body").height() <= ($(window).height() + $(window).scrollTop()) && bottom === "no" && i != 0) {
+					bottom = "reached";
+					var last = $("#thread").children().length;
+					console.log(last);
+					$.ajax({
+						method	: "POST",
+						url		: "./AJAX/thread.php",
+						dataType: "html",
+						data 	: {"place":"profile","last":last},
+						success: function(data){
 
+							if(data != ""){
+								$('.display_min, .display_more, .read_more').remove();
+								$('#thread').append(data);
+								shortPub();
+							}
+							else{
+								$('#thread').append('<h6>Fin</h6>');
+								$(window).unbind('scroll');
+							}
+
+						},
+						error: function(){
+
+								location.reload(true);
+
+						}
+					});
+					i++;
+			}
+			else{
+					bottom = "no";
+					i++;
+			}
+	});
 
 	Array.prototype.forEach.call( inputs, function( input )
 	{

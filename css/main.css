@@ -55,10 +55,6 @@ h1, h2, h3, h4, h5, h6{
 input{
 	text-align:left;
 }
-hr{
-	margin:0px;
-	border-top:1px solid rgba(0, 0, 0, 0.14)
-}
 table{
 	background-color:white;
 }
@@ -69,8 +65,9 @@ img{
 hr{
    border: 0;
    height: 1px;
+   margin:0px;
    background: #333;
-   background-image: linear-gradient(to right, #ccc, #333, #ccc);
+   background-image: linear-gradient(to right, #ccc, #808080, #ccc);
 }
 
 
@@ -138,6 +135,11 @@ Classes
 }
 .home-form{
 	margin:9vh 0;
+}
+.basic-hr{
+  margin:0px;
+	border-top:1px solid rgba(0, 0, 0, 0.14);
+  background-image:none;
 }
 .logo{
 	width:80%;

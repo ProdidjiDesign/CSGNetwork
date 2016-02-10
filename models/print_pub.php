@@ -1,25 +1,31 @@
 <?php
 
-	function getPosts($bdd,$place){
-	
+	function getPosts($bdd,$place,$last){
+
 		switch($place){
 
 			case "profile":
 
-				$request = $bdd->prepare('SELECT * FROM posts WHERE author=:author order by pub_date desc;');
+				$request = $bdd->prepare('SELECT * FROM posts WHERE author=:author order by pub_date desc limit '.intval($last).', '.intval($last+15).' ;');
 				$request->execute(array("author"=>$_SESSION['co_elements']['first'].' '.$_SESSION['co_elements']['name']));
-				
-				printPosts($bdd,$request);
 
+				printPosts($bdd,$request,intval($last));
 				break;
+
+			case "newpost":
+
+				$request = $bdd->prepare('SELECT * FROM posts WHERE author=:author order by pub_date desc limit 1 ;');
+				$request->execute(array("author"=>$_SESSION['co_elements']['first'].' '.$_SESSION['co_elements']['name']));
+
+				printPosts($bdd,$request,0);
+				break;
+
 
 		}
 
 	}
 
-	function printPosts($bdd,$data){
-
-		$id = 0;
+	function printPosts($bdd,$data,$id){
 
 		while($single = $data->fetch()){
 
@@ -41,7 +47,7 @@
 			list($day, $time) = explode(" ",$daytime);
 
 
-			echo '	
+			echo '
 			<div class = "container-fluid" id = "pub-'.$id.'">
 				<div class = "row pub-header">
 					<div class = "pub-info col-xs-3">
@@ -50,7 +56,7 @@
 					<div class = "col-xs-4 col-xs-offset-1 col-md-2 col-md-offset-2">
 						<div style = "background-image:url(\'./pictures/default.jpg\');" class = "pub-img">
 						</div>
-					</div> 
+					</div>
 					<div class = "pub-info col-xs-3 col-xs-offset-1 col-md-offset-2">
 						'.$day.'/'.$month.'/'.$year.'
 					</div>

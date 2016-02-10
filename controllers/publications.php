@@ -1,6 +1,6 @@
 <div class = "row">
 	<div class = "col-sm-7 col-xs-12 profile-container">
-	 
+
 		<div class = "container-fluid post-form single">
 
 			<div class = "col-xs-2">
@@ -16,7 +16,7 @@
 				<div class = "place-t-post" id = "school-post" title="Ecrivez à toute l'école.">
 					<span class = "glyphicon glyphicon-globe"></span>
 				</div>
-			</div> 
+			</div>
 			<div class = "col-xs-10" style="line-height: 0;">
 				<textarea id = "write-space" placeholder="Ecrivez à votre classe."></textarea>
 				<div class = "bottom-post">
@@ -40,7 +40,7 @@
 		</div>
 
 		<div id = "thread">
-		
+
 		</div>
 
 	</div>

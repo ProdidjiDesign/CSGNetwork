@@ -14,9 +14,10 @@ if(isset($_SESSION["co_elements"]) && isset($_POST['last']) && isset($_POST['pla
 	switch($_POST['place']){
 
 		case "profile":
-
-			getPosts($bdd, "profile");
-
+			getPosts($bdd, "profile", $_POST['last']);
+			break;
+		case "newpost":
+			getPosts($bdd, "newpost", $_POST['last']);
 			break;
 
 

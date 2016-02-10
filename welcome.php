@@ -3,7 +3,7 @@
 <html>
 
 	<head>
-		<?php 
+		<?php
 			$animate = true;
 			require(dirname(__FILE__)."/controllers/head.php");
 		?>
@@ -30,10 +30,10 @@
 						</div>
 
 					</form>
-					
+
 				</div>
 
-			</div><hr />
+			</div><hr class = "basic-hr"/>
 		</div>
 
 		<div class = "container-fluid home-form">
@@ -112,10 +112,10 @@
 			</div>
 		</div>
 
-	<?php 
+	<?php
 
 		$mobile = false;
-		require(dirname(__FILE__)."/controllers/scripts.php"); 
+		require(dirname(__FILE__)."/controllers/scripts.php");
 	?>
 	<script type = "text/javascript" src = "./js/login.js"></script>
 	</body>
