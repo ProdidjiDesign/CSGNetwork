@@ -1,27 +1,27 @@
 function shortPub(){
 	$('.text-pub').each(function(event){
-		
+
 			var max_length = 300;
-			
-			if($(this).html().length > max_length){ 
-				
+
+			if($(this).html().length > max_length){
+
 				var short_content 	= $(this).html().substr(0,max_length);
 				var long_content	= $(this).html().substr(max_length);
-				
+
 				$(this).html(short_content+
 							 '<a href="#" class="read_more"><br />...Lire la suite</a>'+
 							 '<span class="more_text" style="display:none;">'+long_content+'</span>');
-							 
+
 				$(this).find('a.read_more').click(function(event){
-	 
+
 					event.preventDefault();
 					$(this).hide();
 					$(this).parents('.text-pub').find('.more_text').show();
-			 
+
 				});
-				
+
 			}
-			
+
 	});
 
 	$('.mosaicflow').mosaicflow({
@@ -111,9 +111,9 @@ function detectLink(text){
 			$('#img-preview').prepend("<a class='embedly-card' href='"+words[https[j]]+"'>"+cutted_url[2]+"</a>");
 			words.push("<a class='embedly-card' href='"+words[https[j]]+"'>"+cutted_url[2]+"</a>");
 			words[https[j]] = "";
-			
+
 		}
-		
+
 	}
 	return words.join(" ");
 
@@ -194,6 +194,8 @@ $(document).ready(function() {
 		  }
 		}
 		var xhr = new XMLHttpRequest();
+		$(".post-form.single").children().hide();
+		$(".post-form").prepend("<img style = 'width:10%;margin:auto;' src = './pictures/loading.gif'/>");
 		xhr.open('POST', './AJAX/post_pub.php', true);
 		xhr.timeout = 10000;
 
@@ -207,7 +209,8 @@ $(document).ready(function() {
 
 		xhr.onload = function () {
 		  if (xhr.status === 200) {
-		    alert('Upload');
+				$(".post-form").children("img").remove();
+				$(".post-form.single").children().fadeIn();
 		  } else {
 		    alert('Une erreur s\'est produite!');
 		  }
@@ -317,7 +320,7 @@ $(document).ready(function() {
 						default:
 							$('#drag-drop-label').append('<br />Oups, ce fichier ne semble pas être une image.');
 							preview = false;
-							break;	
+							break;
 					}
 				}
 				else{
@@ -376,7 +379,7 @@ $(document).ready(function() {
 		  							default:
 		  								$('#drag-drop-label').append('<br />Oups, ce fichier ne semble pas être une image.');
 		  								preview = false;
-		  								break;	
+		  								break;
 		  						}
 		  					}
 		  					else{

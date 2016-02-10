@@ -26,29 +26,11 @@ Fonts
   font-weight: normal;
   font-style: normal;
 }
-/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
-/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
-/*
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  @font-face {
-    font-family: 'fontello';
-    src: url('../font/fontello.svg?42574432#fontello') format('svg');
-  }
-}
-*/
- 
+
  [class^="icon-"]:before, [class*=" icon-"]:before {
   	font-family: "fontello" !important;
- 	
-  /* you can be more comfortable with increased icons size */
-  /* font-size: 120%; */
- 
-  /* Font smoothing. That was taken from TWBS */
   	-webkit-font-smoothing: antialiased;
   	-moz-osx-font-smoothing: grayscale;
- 
-  /* Uncomment for 3D effect */
-  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
 /*************
@@ -84,11 +66,11 @@ img{
 	width:100%;
 	height:auto;
 }
-hr{ 
-   border: 0; 
-   height: 1px; 
-   background: #333; 
-   background-image: linear-gradient(to right, #ccc, #333, #ccc); 
+hr{
+   border: 0;
+   height: 1px;
+   background: #333;
+   background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
 
@@ -102,8 +84,8 @@ Classes
 	margin-top:0px !important;
 }
 
-.icon-heart-broken:before { 
-	content: '\e800'; 
+.icon-heart-broken:before {
+	content: '\e800';
 }
 .login-form{
 	margin-top: 20px;
@@ -401,7 +383,7 @@ table .glyphicon{
 .pub-header{
 	display: flex;
     align-items: center;
-}	
+}
 .pub-content{
 	background-color:white;
 	padding:3vh 3vw;
@@ -465,7 +447,7 @@ table .glyphicon{
 	padding-left: 54px;
 }
 .profile-img{
-    background-size: auto 100%; 
+    background-size: auto 100%;
     width:100%;
 	background-size: cover;
 	background-position: center center;
@@ -668,19 +650,19 @@ Loaders
 	0% {
 		transform: rotate(0deg);
 	}
-	
+
 	25% {
 		transform: rotate(180deg);
 	}
-	
+
 	50% {
 		transform: rotate(180deg);
 	}
-	
+
 	75% {
 		transform: rotate(360deg);
 	}
-	
+
 	100% {
 		transform: rotate(360deg);
 	}
@@ -690,19 +672,19 @@ Loaders
 	0% {
 		transform: rotate(0deg);
 	}
-	
+
 	25% {
 		transform: rotate(180deg);
 	}
-	
+
 	50% {
 		transform: rotate(180deg);
 	}
-	
+
 	75% {
 		transform: rotate(360deg);
 	}
-	
+
 	100% {
 		transform: rotate(360deg);
 	}
@@ -712,19 +694,19 @@ Loaders
 	0% {
 		transform: rotate(0deg);
 	}
-	
+
 	25% {
 		transform: rotate(180deg);
 	}
-	
+
 	50% {
 		transform: rotate(180deg);
 	}
-	
+
 	75% {
 		transform: rotate(360deg);
 	}
-	
+
 	100% {
 		transform: rotate(360deg);
 	}
@@ -734,19 +716,19 @@ Loaders
 	0% {
 		transform: rotate(0deg);
 	}
-	
+
 	25% {
 		transform: rotate(180deg);
 	}
-	
+
 	50% {
 		transform: rotate(180deg);
 	}
-	
+
 	75% {
 		transform: rotate(360deg);
 	}
-	
+
 	100% {
 		transform: rotate(360deg);
 	}
@@ -756,19 +738,19 @@ Loaders
 	0% {
 		transform: rotate(0deg);
 	}
-	
+
 	25% {
 		transform: rotate(180deg);
 	}
-	
+
 	50% {
 		transform: rotate(180deg);
 	}
-	
+
 	75% {
 		transform: rotate(360deg);
 	}
-	
+
 	100% {
 		transform: rotate(360deg);
 	}
@@ -778,19 +760,19 @@ Loaders
 	0% {
 		height: 0%;
 	}
-	
+
 	25% {
 		height: 0%;
 	}
-	
+
 	50% {
 		height: 100%;
 	}
-	
+
 	75% {
 		height: 100%;
 	}
-	
+
 	100% {
 		height: 0%;
 	}
@@ -800,19 +782,19 @@ Loaders
 	0% {
 		height: 0%;
 	}
-	
+
 	25% {
 		height: 0%;
 	}
-	
+
 	50% {
 		height: 100%;
 	}
-	
+
 	75% {
 		height: 100%;
 	}
-	
+
 	100% {
 		height: 0%;
 	}
@@ -822,19 +804,19 @@ Loaders
 	0% {
 		height: 0%;
 	}
-	
+
 	25% {
 		height: 0%;
 	}
-	
+
 	50% {
 		height: 100%;
 	}
-	
+
 	75% {
 		height: 100%;
 	}
-	
+
 	100% {
 		height: 0%;
 	}
@@ -844,19 +826,19 @@ Loaders
 	0% {
 		height: 0%;
 	}
-	
+
 	25% {
 		height: 0%;
 	}
-	
+
 	50% {
 		height: 100%;
 	}
-	
+
 	75% {
 		height: 100%;
 	}
-	
+
 	100% {
 		height: 0%;
 	}
@@ -866,19 +848,19 @@ Loaders
 	0% {
 		height: 0%;
 	}
-	
+
 	25% {
 		height: 0%;
 	}
-	
+
 	50% {
 		height: 100%;
 	}
-	
+
 	75% {
 		height: 100%;
 	}
-	
+
 	100% {
 		height: 0%;
 	}
