@@ -19,7 +19,7 @@
 			</div>
 			<div class = "col-xs-10" style="line-height: 0;">
 				<textarea id = "write-space" placeholder="Ecrivez à votre classe."></textarea>
-				<div class = "bottom-post">
+				<div class = "bottom-post" style="min-height: 30px;">
 					<span id = "img-preview">
 					</span>
 					<div class = "complement">

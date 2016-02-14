@@ -20,6 +20,58 @@
 				printPosts($bdd,$request,0);
 				break;
 
+			case "thread-page":
+
+				$request = $bdd->prepare('SELECT * FROM posts WHERE
+					sticky=1 AND
+					(dest LIKE :fcase
+					OR dest LIKE :scase
+					OR dest LIKE :tcase
+					OR dest LIKE :fcase
+					OR author = :author
+					OR dest = :class
+					OR dest = "school"
+					OR dest = :year)
+					order by pub_date desc limit 15 ;');
+
+					$request->execute(array(
+					"author"=>$_SESSION['co_elements']['first'].' '.$_SESSION['co_elements']['name'],
+					"fcase"=>'%'.$_SESSION['co_elements']['first'].' '.$_SESSION['co_elements']['name'].'%',
+					"scase"=>'%'.$_SESSION['co_elements']['first'].' '.$_SESSION['co_elements']['name'],
+					"tcase"=>$_SESSION['co_elements']['first'].' '.$_SESSION['co_elements']['name'].'%',
+					"tcase"=>$_SESSION['co_elements']['first'].' '.$_SESSION['co_elements']['name'],
+					"class"=>$_SESSION['co_elements']['class'],
+					"year"=>$_SESSION['co_elements']['class'][0]
+				));
+
+				printPosts($bdd,$request,0);
+
+
+				$request = $bdd->prepare('SELECT * FROM posts WHERE
+					sticky!=1 AND
+					(dest LIKE :fcase
+					OR dest LIKE :scase
+					OR dest LIKE :tcase
+					OR dest LIKE :fcase
+					OR author = :author
+					OR dest = :class
+					OR dest = "school"
+					OR dest = :year)
+					order by pub_date desc limit 15 ;');
+
+				$request->execute(array(
+					"author"=>$_SESSION['co_elements']['first'].' '.$_SESSION['co_elements']['name'],
+					"fcase"=>'%'.$_SESSION['co_elements']['first'].' '.$_SESSION['co_elements']['name'].'%',
+					"scase"=>'%'.$_SESSION['co_elements']['first'].' '.$_SESSION['co_elements']['name'],
+					"tcase"=>$_SESSION['co_elements']['first'].' '.$_SESSION['co_elements']['name'].'%',
+					"tcase"=>$_SESSION['co_elements']['first'].' '.$_SESSION['co_elements']['name'],
+					"class"=>$_SESSION['co_elements']['class'],
+					"year"=>$_SESSION['co_elements']['class'][0]
+				));
+
+				printPosts($bdd,$request,0);
+				break;
+
 
 		}
 

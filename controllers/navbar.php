@@ -2,7 +2,7 @@
 
   <ul class = "navbar-nav">
     <li>
-      <a>
+      <a href="./profile.php">
         <span data-original-title="<?php echo $_SESSION['co_elements']['first'].' '.$_SESSION['co_elements']['name']; ?>" data-toggle="tooltip" data-placement="right">
           <span class = "glyphicon glyphicon-home"></span>
         </span>
@@ -10,7 +10,7 @@
     </li>
 
     <li>
-      <a>
+      <a href="./thread.php">
         <span data-original-title="Actualités" data-toggle="tooltip" data-placement="right">
           <span class = "glyphicon glyphicon-random"></span>
         </span>

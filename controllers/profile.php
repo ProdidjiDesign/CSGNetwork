@@ -3,13 +3,13 @@
 <html>
 
 	<head>
-		<?php 
+		<?php
 			$animate = false;
 			require(dirname(__FILE__)."/head.php");
 		?>
 	</head>
 
-	<body class = "maincontainer">
+	<body class = "maincontainer" id="profile">
 	<?php require(dirname(__FILE__)."/navbar.php");?>
 		<div class = "container-fluid" style = "min-height:90vh;">
 			<div class = "row" style="margin-top:10vh;">
@@ -67,14 +67,14 @@
 					<?php
 						require('./controllers/publications.php');
 					?>
-					</div> 
+					</div>
 				</div>
 			</div>
 		</div>
 
 	<?php
 		$mobile = true;
-		require(dirname(__FILE__)."/scripts.php"); 
+		require(dirname(__FILE__)."/scripts.php");
 		echo "<script type = 'text/javascript'> detectActive(0); </script>";
 	?>
 	<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>

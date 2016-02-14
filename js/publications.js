@@ -134,16 +134,21 @@ $(document).ready(function() {
 		method	: "POST",
 		url		: "./AJAX/thread.php",
 		dataType: "html",
-		data 	: {"place":"profile","last":0},
+		data 	: {"place":$('body').attr('id'),"last":0},
 		success: function(data){
 
-				$('#thread').prepend(data);
-				shortPub();
+			if(data != "Are u lost ?"){
+					$('#thread').prepend(data);
+					shortPub();
+			}
+			else{
+					window.location.reload(true);
+			}
 
 		},
 		error: function(){
 
-				location.reload(true);
+				window.location.reload(true);
 
 		}
 	});
