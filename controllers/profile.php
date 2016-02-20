@@ -25,6 +25,9 @@
 								<table class = "table portable-nav" style = "margin-top:5vh;">
 									<tbody>
 										<tr>
+											<td id = "home"><span class = "glyphicon glyphicon-home"></span> <span class = "txt">Mon profil</span></td>
+										</tr>
+										<tr>
 											<td id = "settings"><span class = "glyphicon glyphicon-cog"></span> <span class = "txt">Paramètres</span></td>
 										</tr>
 										<tr>
@@ -79,6 +82,7 @@
 	?>
 	<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
 	<script type = "text/javascript" src="./js/publications.js"></script>
+	<script type = "text/javascript" src="./js/profile.js"></script>
 	</body>
 
 </html>

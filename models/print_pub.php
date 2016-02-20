@@ -82,6 +82,7 @@
 		while($single = $data->fetch()){
 
 			$icon = "glyphicon-heart";
+			$iconcoms = "glyphicon-pencil";
 			$number = 0;
 
 			$request = $bdd->prepare('SELECT * FROM heart WHERE pid=:post_id ;');
@@ -92,11 +93,26 @@
 				if($hearts['uid'] == $_SESSION['co_elements']['uid']){
 					$icon = "icon-heart-broken under-pub-active";
 				}
-				$number++;
+				$numberh++;
 			}
+			$request->closeCursor();
+
+			$request = $bdd->prepare('SELECT * FROM comments WHERE pid=:post_id ;');
+			$request->execute(array("post_id"=>$single['id']));
+
+			while($coms = $request->fetch()){
+
+				if($coms['uid'] == $_SESSION['co_elements']['uid']){
+					$iconcoms = "glyphicon-pencil under-pub-active-com";
+				}
+				$numberc++;
+			}
+
+			$request->closeCursor();
 
 			list($year, $month, $daytime) = explode("-",$single['pub_date']);
 			list($day, $time) = explode(" ",$daytime);
+
 
 
 			echo '
@@ -119,10 +135,10 @@
 				</div>
 				<div class = "row">
 					<div class = "col-sm-2 col-xs-6 under-pub" id = "'.$single['id'].'">
-						<span class = "glyphicon '.$icon.' under-pub-content"></span><span class = "under-pub-content">'.$number.'</span>
+						<span class = "glyphicon '.$icon.' under-pub-content"></span><span class = "under-pub-content">'.$numberh.'</span>
 					</div>
 					<div class = "col-sm-2 col-xs-6 under-pub">
-						<span class = "glyphicon glyphicon-pencil under-pub-content"></span><span class = "under-pub-content">4687</span>
+						<span class = "glyphicon '.$iconcoms.' under-pub-content"></span><span class = "under-pub-content">'.$numberc.'</span>
 					</div>
 				</div>
 			</div>';

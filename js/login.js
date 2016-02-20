@@ -1,11 +1,11 @@
 $(document).ready(function(){
-	
+
 	$("#register-btn").click(function(e){
 
 		e.preventDefault();
 		var form_values = {};
 		var ok = true;
-		
+
 		$("#register-form .required").each(function(){
 
 			if($.trim($(this).val()) == ""){
@@ -16,7 +16,7 @@ $(document).ready(function(){
 
 			}
 
-			
+
 
 			else{
 
@@ -26,7 +26,7 @@ $(document).ready(function(){
 				$(this).removeClass("shake");
 
 			}
-			
+
 
 		});
 		if($("#pass1").val() != $("#pass2").val()){
@@ -85,7 +85,7 @@ $(document).ready(function(){
 				error: function(){
 						$(".home-form").fadeIn("slow");
 						$(".cssload-loader-inner").css("display","none");
-						$(".home-form").append("<p class = 'info-text'>Une erreur c'est produite, veuillez réessayer.</p>");
+						$(".home-form").append("<p class = 'info-text'>Une erreur s'est produite, veuillez réessayer.</p>");
 
 				}
 

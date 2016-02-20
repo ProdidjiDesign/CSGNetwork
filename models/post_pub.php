@@ -7,7 +7,7 @@ function uploadFiles(){
                     $target = '../uploads/';
                     $extensions = array('jpg','gif','png','jpeg');
                     $ext  = pathinfo($_FILES['photos']['name'][$a], PATHINFO_EXTENSION);
-                                
+
                         if (in_array(strtolower($ext),$extensions)){
                             if(isset($_FILES['photos']['error'][$a]) && UPLOAD_ERR_OK === $_FILES['photos']['error'][$a]){
                                 $img_name = md5(uniqid()) .'.'. $ext;
@@ -38,8 +38,8 @@ function uploadFiles(){
 
                                 imagecopyresized($tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
                                 $pathToImage = $target.$img_name;
-            
-                                
+
+
                                 switch (strtolower($ext)) {
                                     case 'jpg':
                                         imagejpeg($tmp_img, $pathToImage);
@@ -58,7 +58,7 @@ function uploadFiles(){
                                     }
                                     $result = $pathToImage;
                                 if($result && $a>0){
-                                    $images[$a] = " <div class='mosaicflow__item'><img src = '".substr($pathToImage,1)."' /></div>";
+                                    $images[$a] = " <div class='mosaicflow_item'><img src = '".substr($pathToImage,1)."' /></div>";
                                 }
                                 else{
                                     $images[$a] = "<img src = '".substr($pathToImage,1)."' />";

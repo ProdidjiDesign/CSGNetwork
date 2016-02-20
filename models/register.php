@@ -54,9 +54,13 @@
 
 		$new_user -> closeCursor();
 
+		$just_id = $bdd->query('SELECT id FROM accounts WHERE pass = "'.$pass.'";');
+		$id = $just_id->fetch();
+
 		$_SESSION["co_elements"] = array(
 
 			'pass' => $pass,
+			'id' => $id,
 			'first' => $first,
 			'name' => $name,
 			'class' => $class,

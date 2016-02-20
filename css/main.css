@@ -41,6 +41,7 @@ Global rules
 
 *{
 	text-align:center;
+  outline:0 !important;
 }
 body{
 	background-color: #E3E4EF;
@@ -400,8 +401,9 @@ table .glyphicon{
     float: left;
 	position: relative;
  }
-.mosaicflow__item{
+.mosaicflow_item{
     position:relative;
+    display:none;
 }
 .left-nav{
 	width: 54px;
@@ -440,6 +442,9 @@ table .glyphicon{
 .under-pub-active{
 	color:red;
 }
+.under-pub-active-com{
+	color:blue;
+}
 .navbar-nav .glyphicon{
 	font-size:1.6em;
 	margin:15px 0px;
@@ -456,6 +461,26 @@ table .glyphicon{
 	border-radius:50%;
 	padding:50%;
 }
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
 /*
 
 Indexes

@@ -2,14 +2,14 @@
 	session_start();
 
 	if(isset($_SESSION["co_elements"]) && isset($_POST['dest'])){
-	
+
 		require("../config/db.php");
 		require("../models/post_pub.php");
 
 		$images_returned = uploadFiles();
 		$image1 = $images_returned[0];
 		$images_returned[0] = "";
-		$images = $image1.'<div class="clearfix mosaicflow">'.implode($images_returned).'</div>';
+		$images = $image1.'<div class="clearfix mosaicflow-container">'.implode($images_returned).'</div>';
 		$status = 1;
 
 		switch($_POST['dest']){
@@ -45,9 +45,9 @@
 		$content = str_replace(array("&lt;/p"), "</p", $content);
 
 		insertPost(nl2br($content), $dest, $status,  $bdd);
-	}	
+	}
 	else{
 		die("Are u lost ?");
 	}
-			
+
 ?>

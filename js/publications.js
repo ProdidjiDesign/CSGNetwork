@@ -24,15 +24,10 @@ function shortPub(){
 
 	});
 
-	$('.mosaicflow').mosaicflow({
-				    itemSelector: '.mosaicflow__item',
-				    minItemWidth: $('.mosaicflow').width()/2
-	});
-
 	$('.item').each(function(){
 
-		if($(this).find('.mosaicflow img').size()>0){
-			$(this).find('.mosaicflow__item').fadeOut();
+		if($(this).find('.mosaicflow-container img').size()>0){
+			//$(this).find('.mosaicflow_item').hide();
 			$(this).append('<a href="#" class="display_more"><br />Afficher toutes les images...</a>');
 		}
 
@@ -40,14 +35,14 @@ function shortPub(){
 
 	$('body').on('click','.display_more',function(event){
 		event.preventDefault();
-		$(this).parent().find('.mosaicflow__item').fadeIn();
+		$(this).parent().find('.mosaicflow_item').fadeIn();
 		$(this).parent().append('<a href="#" class="display_min"></br>Masquer les images...</a>');
 		$(this).remove();
 	});
 
 	$('body').on('click','.display_min',function(event){
 		event.preventDefault();
-		$(this).parent().find('.mosaicflow__item').fadeOut();
+		$(this).parent().find('.mosaicflow_item').fadeOut();
 		$(this).parent().append('<a href="#" class="display_more"><br />Afficher toutes les images...</a>');
 		$(this).remove();
 	});
@@ -140,6 +135,11 @@ $(document).ready(function() {
 			if(data != "Are u lost ?"){
 					$('#thread').prepend(data);
 					shortPub();
+					var mosaic = $('.mosaicflow-container').mosaicflow({
+										itemSelector: '.mosaicflow_item',
+										minItemWidth: $('.mosaicflow-container').width()/2
+					});
+					mosaic.mosaicflow('refill');
 			}
 			else{
 					window.location.reload(true);
@@ -224,8 +224,14 @@ $(document).ready(function() {
 					data 	: {"place":"newpost","last":-1},
 					success: function(data){
 
+							$('.end').remove();
 							$('#thread').prepend(data);
 							shortPub();
+							var mosaic = $('.mosaicflow-container').mosaicflow({
+												itemSelector: '.mosaicflow_item',
+												minItemWidth: $('.mosaicflow-container').width()/2
+							});
+							mosaic.mosaicflow('refill');
 
 					},
 					error: function(){
@@ -320,12 +326,13 @@ $(document).ready(function() {
 						success: function(data){
 
 							if(data != ""){
+								$('h6').remove();
 								$('.display_min, .display_more, .read_more').remove();
 								$('#thread').append(data);
 								shortPub();
 							}
 							else{
-								$('#thread').append('<h6>Fin</h6>');
+								$('#thread').append('<h6 class="end">Fin</h6>');
 								$(window).unbind('scroll');
 							}
 
