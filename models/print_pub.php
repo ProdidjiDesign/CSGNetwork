@@ -83,7 +83,8 @@
 
 			$icon = "glyphicon-heart";
 			$iconcoms = "glyphicon-pencil";
-			$number = 0;
+			$numberh = 0;
+			$numberc = 0;
 
 			$request = $bdd->prepare('SELECT * FROM heart WHERE pid=:post_id ;');
 			$request->execute(array("post_id"=>$single['id']));
@@ -103,7 +104,7 @@
 			while($coms = $request->fetch()){
 
 				if($coms['uid'] == $_SESSION['co_elements']['uid']){
-					$iconcoms = "glyphicon-pencil under-pub-active-com";
+					$iconcoms = "glyphicon-pencil under-pub-active";
 				}
 				$numberc++;
 			}

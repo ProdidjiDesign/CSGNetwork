@@ -43,6 +43,10 @@ $(document).ready(function() {
 
 	});
 
+	$('body').on('click','#lightbox-close',function(){
+		$(".lightbox, .overlay").fadeOut(300, function() { $(this).remove(); });
+	});
+
 	$('body').on('swipeleft',function(){
 
 		if(toggled === 1 && $(window).width()<799){

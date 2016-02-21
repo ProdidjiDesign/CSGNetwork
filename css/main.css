@@ -67,7 +67,6 @@ hr{
    border: 0;
    height: 1px;
    margin:0px;
-   background: #333;
    background-image: linear-gradient(to right, #ccc, #808080, #ccc);
 }
 
@@ -77,6 +76,9 @@ hr{
 Classes
 
 */
+.left-hr{
+  background-image: linear-gradient(to right, #ffffff, #808080, #ffffff);
+}
 
 .icon-heart-broken{
 	margin-top:0px !important;
@@ -353,6 +355,8 @@ table .glyphicon{
 	border-radius:50%;
 	margin:5px 0px;
 	box-shadow: -1px 2px 20px 3px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: -1px 2px 20px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: -1px 2px 20px 3px rgba(0, 0, 0, 0.1);
 
 }
 .under-pub{
@@ -442,13 +446,62 @@ table .glyphicon{
 .under-pub-active{
 	color:red;
 }
-.under-pub-active-com{
-	color:blue;
-}
 .navbar-nav .glyphicon{
 	font-size:1.6em;
 	margin:15px 0px;
 	cursor:pointer;
+}
+.write-space-bis{
+  width:85%;
+  margin:10px 0px;
+  border:1px solid rgba(0,0,0,0.3);
+  border-radius: 10px;
+  resize:none;
+  text-align:left;
+  padding:5px;
+  height: 93px !important;
+  line-height: 1.42857143;
+
+}
+.overlay{
+  width: 100%;
+  height: 100vh;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 8010;
+  background: rgba(0,0,0,0.8);
+}
+.lightbox{
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: top;
+  width: 40%;
+  position: fixed;
+  top: 10vh;
+  left: 30%;
+  opacity: 1;
+  overflow: visible;
+  background-color: white;
+  z-index: 9999;
+  padding:5vh 0px;
+}
+.comments-container{
+  margin:auto;
+  height:50vh;
+  width:80%;
+  border-radius:10px;
+  -moz-box-shadow:inset 0 0px 10px -2px rgba(0,0,0,0.1);
+  -webkit-box-shadow:inset 0 0px 10px -2px rgba(0,0,0,0.1);
+  box-shadow:inset 0 0px 10px -2px rgba(0,0,0,0.1);
+  overflow: scroll;
+}
+.comments-container *{
+  text-align: left;
 }
 .maincontainer{
 	padding-left: 54px;
@@ -503,6 +556,26 @@ Indexes
 	max-width: 100%;
 	text-align:left;
 	width:100%;
+}
+#lightbox-close{
+  font-size: 20px;
+  cursor:pointer;
+  color: #2D2D2F;
+  position: absolute;
+  right: 0px;
+  padding: 10px;
+  -moz-transition-duration:0.5s;
+	-moz-transition-property:-moz-transform;
+	-webkit-transition-duration:0.5s;
+	-webkit-transition-property:-webkit-transform;
+	transition-duration:0.5s;
+	transition-property:transform,color;
+}
+#lightbox-close:hover{
+	transform:rotateZ(360deg) scale(1.5,1.5);
+	-webkit-transform:rotateZ(360deg) scale(1.5,1.5);
+	-moz-transform:rotateZ(360deg) scale(1.5,1.5);
+  color:red;
 }
 #login-btn{
 	animation:tada 2s 2s both infinite;
@@ -987,6 +1060,11 @@ Responsive rules
 	.under-pub{
 		text-align:center;
 	}
+  .lightbox{
+    width:90%;
+    top: 6vh;
+    left: 5%;
+  }
 }
 
 @media (max-width: 700px){
