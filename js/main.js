@@ -1,3 +1,10 @@
+function lightbox(data){
+	$("body").append('<div class = "overlay"></div>'+
+	'<div class = "lightbox">'+data+
+		'<div id = "lightbox-close" class="glyphicon glyphicon-remove"></div>'+
+	'</div>');
+}
+
 function detectActive(number){
 
 	$('.navbar-nav').children().eq(number).addClass('act');
@@ -53,6 +60,12 @@ $(document).ready(function() {
   			$('.left-nav').toggle('fast');
   			toggled = 0;
 		}
+
+	});
+
+	$('body').on('click','img',function(){
+
+		lightbox("<img style='width:80%;' src='"+$(this).attr('src')+"' />");
 
 	});
 

@@ -4,7 +4,7 @@
 	if(isset($_SESSION["co_elements"]) && isset($_POST['dest'])){
 
 		require("../config/db.php");
-		require("../models/post_pub.php");
+		require("../models/publications.php");
 
 		$images_returned = uploadFiles();
 		$image1 = $images_returned[0];

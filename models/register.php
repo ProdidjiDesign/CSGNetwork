@@ -60,7 +60,7 @@
 		$_SESSION["co_elements"] = array(
 
 			'pass' => $pass,
-			'id' => $id,
+			'uid' => $id,
 			'first' => $first,
 			'name' => $name,
 			'class' => $class,

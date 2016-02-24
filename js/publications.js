@@ -189,6 +189,9 @@ $(document).ready(function() {
 		var formData = new FormData();
 
 		formData.append('content',content);
+
+		if ($("#write-space").val()===""){return false;}
+
 		formData.append('dest',place);
 
 		for (var i = 0; i < droppedFiles.length; i++) {
@@ -313,6 +316,71 @@ $(document).ready(function() {
 
 	});
 
+	$("body").on('click','.glyphicon-pencil',function(){
+
+		var pid = $(this).parent().parent().children().first().attr("id");
+
+		$.ajax({
+			method	: "POST",
+			url		: "./AJAX/coms.php",
+			dataType: "html",
+			data 	: {"pid":pid},
+			success: function(data){
+
+				if(data === "Are u lost ?"){
+					window.location.reload(true);
+				}
+				else{
+					lightbox(data);
+				}
+
+			},
+			error: function(){
+
+					location.reload(true);
+
+			}
+		});
+
+	});
+
+	$("body").on('click','#comment-submit',function(){
+		var pid = $(this).attr('data-post-id');
+		var content = $("#write-space-coms").val();
+
+		if(content===""){return null;}
+
+		$.ajax({
+			method	: "POST",
+			url		: "./AJAX/post_com.php",
+			dataType: "html",
+			data 	: {"pid":pid,"content":content},
+			success: function(data){
+
+				if(data != "Are u lost ?"){
+					$("#"+pid).parent().children().eq(1).children().eq(0).css("color","red");
+					var nbr = parseInt($("#"+pid).parent().children().eq(1).children().eq(1).text());
+					nbr++;
+					$("#"+pid).parent().children().eq(1).children().eq(1).text(nbr);
+					$(".last-comment").removeClass("last-comment");
+					$("#write-space-coms").val("");
+					$(".comments-container").prepend(data);
+
+				}
+				else{
+						window.location.reload(true);
+				}
+
+			},
+			error: function(){
+
+					window.location.reload(true);
+
+			}
+		});
+
+	});
+
 	$(window).scroll(function() {
 			if ($("body").height() <= ($(window).height() + $(window).scrollTop()) && bottom === "no" && i != 0) {
 					bottom = "reached";
@@ -326,13 +394,11 @@ $(document).ready(function() {
 						success: function(data){
 
 							if(data != ""){
-								$('h6').remove();
 								$('.display_min, .display_more, .read_more').remove();
 								$('#thread').append(data);
 								shortPub();
 							}
 							else{
-								$('#thread').append('<h6 class="end">Fin</h6>');
 								$(window).unbind('scroll');
 							}
 

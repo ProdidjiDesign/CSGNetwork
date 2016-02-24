@@ -1,5 +1,5 @@
 <div class = "row">
-	<div class = "col-sm-7 col-xs-12 profile-container">
+	<div class = "col-sm-7 col-xs-12 col-sm-offset-3 col-md-offset-0 profile-container">
 
 		<div class = "container-fluid post-form single">
 
@@ -42,6 +42,6 @@
 		<div id = "thread">
 
 		</div>
-
+		<h6>0 0 0</h6>
 	</div>
 </div>
