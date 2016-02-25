@@ -1,4 +1,4 @@
-//yahooou
+//kinda boring
 
 function lightbox(data){
 	$("body").append('<div class = "overlay"></div>'+
