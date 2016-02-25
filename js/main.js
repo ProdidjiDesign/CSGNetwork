@@ -4,7 +4,7 @@ function lightbox(data){
 		'<div id = "lightbox-close" class="glyphicon glyphicon-remove"></div>'+
 	'</div>');
 }
-
+//kikou
 function detectActive(number){
 
 	$('.navbar-nav').children().eq(number).addClass('act');
