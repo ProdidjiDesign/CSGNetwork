@@ -1,3 +1,5 @@
+//yahooou
+
 function lightbox(data){
 	$("body").append('<div class = "overlay"></div>'+
 	'<div class = "lightbox">'+data+
