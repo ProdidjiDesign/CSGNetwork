@@ -1,4 +1,3 @@
-//
 $( document ).ready(function($) {
 	notifId = 0;
     notifVisible = 0;
