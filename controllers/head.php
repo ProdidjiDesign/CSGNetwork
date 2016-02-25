@@ -1,4 +1,4 @@
-<?php 
+<?php
 	define('PATH', 'http://'.$_SERVER['HTTP_HOST'].'/CSGNetwork/');
 
 	if($animate){

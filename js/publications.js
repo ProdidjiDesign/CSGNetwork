@@ -332,6 +332,10 @@ $(document).ready(function() {
 				}
 				else{
 					lightbox(data);
+					$('.write-space-bis').emojiPicker({
+  height: '300px',
+  width:  '450px'
+});
 				}
 
 			},

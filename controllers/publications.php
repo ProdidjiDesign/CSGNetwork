@@ -25,6 +25,9 @@
 					<div class = "complement">
 						<span class = "glyphicon glyphicon-picture"></span>
 					</div>
+					<div class = "complement">
+						<span id="sticky-button" class = "glyphicon glyphicon-bookmark" style = "position: absolute;bottom: 0px;top: 101px;"></span>
+					</div>
 					<button class = "btn btn-submit btn-small" id = "pub-send">Envoyer</button>
 				</div>
 				<form class="box" method="post" accept="image/*" enctype="multipart/form-data">

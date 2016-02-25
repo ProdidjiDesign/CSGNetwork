@@ -222,7 +222,8 @@ table .glyphicon{
 	float:left;
 }
 .bottom-post *{
-	display:inline-block;
+	display:inline;
+  margin:0px 2px;
 }
 .btn-small{
 	width: auto;
@@ -602,6 +603,9 @@ Indexes
 }
 #class-post, #year-post, #friends-post{
 	border-bottom:1px solid #E3E4EF;
+}
+#sticky-button{
+  display:none;
 }
 .place-t-post#school-post.active-item{
 	box-shadow:none !important;
